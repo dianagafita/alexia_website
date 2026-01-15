@@ -5,7 +5,7 @@ export default function ContactPage() {
   return (
     <main ref={ref} className="min-h-screen px-10 py-20">
       <section className="reveal">
-        <div className="rounded-lg border border-[#ededed]/12 px-8 py-10 grid md:grid-cols-2 gap-12 items-start">
+        <div className="mt-10 rounded-lg border border-[#ededed]/12 px-8 py-10 grid md:grid-cols-2 gap-12 items-start">
           {/* Left: intro + details */}
           <div>
             <p className="tracking-widest text-xs opacity-60">CONTACT</p>
@@ -13,22 +13,20 @@ export default function ContactPage() {
             <div className="mt-3 h-px w-24 bg-[#ededed]/40 line-reveal" />
             <p className="mt-5 opacity-70 max-w-[560px]">
               Spune-ne pe scurt despre proiectul tău, iar noi revenim rapid cu
-              pașii următori.
+              pașii următori. Lucrăm 100% online și adaptăm pachetul exact
+              nevoilor tale.
             </p>
             <div className="mt-8 space-y-2 opacity-80">
               <div>
                 Email:{" "}
-                <a href="mailto:contact@exemplu.ro" className="link-underline">
-                  contact@exemplu.ro
+                <a
+                  href="mailto:contact@achipconsulting.ro"
+                  className="link-underline"
+                >
+                  contact@achipconsulting.ro
                 </a>
               </div>
-              <div>
-                Telefon:{" "}
-                <a href="tel:+407852639214" className="link-underline">
-                  +(07) 852 639 214
-                </a>
-              </div>
-              <div>București, RO</div>
+              <div>Program: L–V, 09:00 – 18:00 (online)</div>
             </div>
           </div>
 
@@ -62,6 +60,14 @@ export default function ContactPage() {
               />
             </label>
             <label className="flex flex-col gap-2">
+              <span className="text-sm opacity-70">Tip proiect / domeniu</span>
+              <input
+                name="project"
+                className="bg-transparent border-b hairline-b border-[#ededed]/25 p-3 outline-none"
+                placeholder="Ex: procedură simplificată, achiziții lucrări"
+              />
+            </label>
+            <label className="flex flex-col gap-2">
               <span className="text-sm opacity-70">Mesaj</span>
               <textarea
                 name="message"
@@ -73,7 +79,10 @@ export default function ContactPage() {
               <span className="opacity-60 text-sm">
                 Răspundem de regulă în 24–48h.
               </span>
-              <button type="button" className="px-5 py-2 rounded-full btn-outline">
+              <button
+                type="button"
+                className="px-5 py-2 rounded-full btn-outline"
+              >
                 Trimite mesajul
               </button>
             </div>
@@ -83,5 +92,3 @@ export default function ContactPage() {
     </main>
   );
 }
-
-

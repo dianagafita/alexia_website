@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function NavigationBar() {
   const [open, setOpen] = useState(false);
@@ -27,31 +28,43 @@ export default function NavigationBar() {
   return (
     <>
       <div
-        className={`flex justify-between items-center pt-5 pb-3 ${scrolled ? "px-10" : "mx-10"} border-b hairline-b border-[#ededed]/40 fixed top-0 left-0 right-0 z-[100] transition-colors duration-300 ${
+        className={`flex items-center justify-between gap-6 pt-5 pb-3 ${
+          scrolled ? "px-10" : "mx-10"
+        } border-b hairline-b border-[#ededed]/40 fixed top-0 left-0 right-0 z-[100] transition-colors duration-300 ${
           scrolled ? "bg-[#151515]/100" : ""
         }`}
       >
-        <div className="flex gap-5 items-center">
-          <div>LOGO HERE</div>
-          <nav className={`${open ? "hidden" : "hidden md:flex"} gap-5`}>
-            <Link className="link-underline" href="/">
-              ACASA
-            </Link>
-            <Link className="link-underline" href="/about">
-              DESPRE NOI
-            </Link>
-            <Link className="link-underline" href="/services">
-              SERVICII
-            </Link>
-            <Link className="link-underline" href="/contact">
-              CONTACT
-            </Link>
-          </nav>
+        <div className="flex items-center gap-5 flex-shrink-0">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2"
+            aria-label="Achip Consulting"
+          >
+            <Image
+              src="/logo.png"
+              alt="Achip Consulting"
+              width={180}
+              height={60}
+              className="h-[3rem] w-auto object-contain nav-logo"
+              priority
+            />
+          </Link>
         </div>
 
-        <div className={`${open ? "hidden" : "hidden md:block"}`}>
-          +(07) 852 639 214
-        </div>
+        <nav className={`${open ? "hidden" : "hidden md:flex"} gap-5 ml-auto`}>
+          <Link className="link-underline nav-link" href="/">
+            ACASA
+          </Link>
+          <Link className="link-underline nav-link" href="/about">
+            DESPRE NOI
+          </Link>
+          <Link className="link-underline nav-link" href="/services">
+            SERVICII
+          </Link>
+          <Link className="link-underline nav-link" href="/contact">
+            CONTACT
+          </Link>
+        </nav>
 
         <button
           className="md:hidden inline-flex items-center justify-center p-2 rounded border border-[#ededed]/30"
@@ -66,7 +79,20 @@ export default function NavigationBar() {
       {open && (
         <div className="md:hidden fixed inset-0 z-[200] w-svw h-svh bg-[rgba(21,21,21,0.98)] overflow-y-auto">
           <div className="flex justify-between items-center px-10 pt-5 pb-3 border-b hairline-b border-[#ededed]/15">
-            <div>LOGO HERE</div>
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2"
+              aria-label="Achip Consulting"
+            >
+              <Image
+                src="/logo.png"
+                alt="Achip Consulting"
+                width={260}
+                height={80}
+                className="h-[3.75rem] w-auto object-contain nav-logo"
+                priority
+              />
+            </Link>
             <button
               className="inline-flex items-center justify-center "
               aria-label="Close menu"
@@ -76,35 +102,34 @@ export default function NavigationBar() {
             </button>
           </div>
           <nav className="px-10 py-6 flex flex-col gap-6 text-lg">
-            <a
-              className="link-underline anim-menu anim-delay-1"
+            <Link
+              className="link-underline nav-link anim-menu anim-delay-1"
               href="/"
               onClick={() => setOpen(false)}
             >
-              HOME PAGE
-            </a>
-            <a
-              className="link-underline anim-menu anim-delay-2"
+              ACASA
+            </Link>
+            <Link
+              className="link-underline nav-link anim-menu anim-delay-2"
               href="/about"
               onClick={() => setOpen(false)}
             >
-              ABOUT
-            </a>
-            <a
-              className="link-underline anim-menu anim-delay-3"
+              DESPRE NOI
+            </Link>
+            <Link
+              className="link-underline nav-link anim-menu anim-delay-3"
               href="/services"
               onClick={() => setOpen(false)}
             >
-              SERVICES
-            </a>
-            <a
-              className="link-underline anim-menu anim-delay-4"
+              SERVICII
+            </Link>
+            <Link
+              className="link-underline nav-link anim-menu anim-delay-4"
               href="/contact"
               onClick={() => setOpen(false)}
             >
               CONTACT
-            </a>
-            <span className="opacity-70 pt-2">+(07) 852 639 214</span>
+            </Link>
           </nav>
         </div>
       )}

@@ -6,25 +6,31 @@ import { useParallax } from "../../lib/useParallax";
 
 export default function MainContent() {
   const ref = useRevealOnScroll();
-  const bgRef = useParallax(0.15);
+  const bgRef = useParallax(0.02);
   const router = useRouter();
   return (
     <div
       ref={ref}
-      className="relative w-full flex flex-col justify-center items-start min-h-[70vh] px-10 py-20"
+      className="relative w-full flex flex-col justify-center items-start min-h-[70vh] md:px-10 py-40"
     >
-      <section className="max-w-[900px]">
+      <section className="max-w-[920px]">
         <p className="tracking-widest text-xs opacity-60 reveal">
           CONSULTANȚĂ ACHIZIȚII PUBLICE
         </p>
         <h1 className="mt-3 text-5xl leading-tight reveal reveal-delay-1">
-          Expertiză în Achiziții Publice
+          De la A la Z în Achiziții Publice
         </h1>
-        <p className="mt-5 text-base max-w-[560px] opacity-70 reveal reveal-delay-2">
-          Proceduri realizate impecabil, de la planificare la evaluare.
-          Economisești timp, reduci riscul și crești șansele de succes.
+        <p className="mt-5 text-base max-w-[720px] opacity-80 reveal reveal-delay-2">
+          Oferim suport strategic operatorilor economici pentru participarea la
+          licitații publice, de la planificare la finalizarea procedurii – totul
+          online și orientat spre rezultate.
         </p>
-        <div className="mt-8 flex gap-4 reveal reveal-delay-3">
+        <p className="mt-4 text-base max-w-[720px] opacity-70 reveal reveal-delay-2">
+          Îți duci businessul la nivelul următor, iar noi suntem alături de
+          tine, pas cu pas. Economisești timp, reduci riscul și îți crești
+          șansele de câștig.
+        </p>
+        <div className="mt-8 flex flex-wrap gap-4 reveal reveal-delay-3">
           <button
             type="button"
             className="px-5 py-2 rounded-full btn-outline"
@@ -37,23 +43,25 @@ export default function MainContent() {
               }
             }}
           >
-            Solicită ofertă
+            Programează o discuție
           </button>
           <button
             type="button"
             className="px-5 py-2 rounded-full btn-outline"
-            onClick={() => router.push("/services")}
+            onClick={() => {
+              router.push("/#pachete");
+            }}
           >
-            Vezi toate serviciile
+            Vezi pachetele
           </button>
         </div>
       </section>
       <div
         ref={bgRef}
-        className="absolute inset-0 -z-10 opacity-20 will-change-transform"
+        className="absolute inset-0 -z-10 opacity-30 will-change-transform"
       >
         <Image
-          src="/images/img1.jpg"
+          src="/images/office-modern-brown.jpg"
           alt="Hero background"
           className="w-full h-full object-cover"
           width={1920}

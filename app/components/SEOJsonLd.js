@@ -5,15 +5,15 @@ export default function SEOJsonLd({ siteUrl }) {
   const org = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Alexia - Consultanță Achiziții Publice",
+    name: "Achip Consulting",
     url: siteUrl,
-    logo: `${siteUrl}/images/img1.jpg`,
+    logo: `${siteUrl}/logo.png`,
   };
 
   const webSite = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Alexia",
+    name: "Achip Consulting",
     url: siteUrl,
     potentialAction: {
       "@type": "SearchAction",

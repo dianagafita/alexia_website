@@ -33,6 +33,10 @@ body {
   font-weight: 200;
 }
 
+.nav-logo {
+  filter: brightness(0) invert(1);
+}
+
 /* Hairline bottom border helper: 1px fallback, 0.5px on high-DPR displays */
 .hairline-b {
   border-bottom-width: 1px;
@@ -45,6 +49,11 @@ section {
   margin-right: auto;
   padding-left: 2.5rem; /* ~ Tailwind px-10 */
   padding-right: 2.5rem;
+  @media (max-width: 768px) {
+    padding: 0 2.5rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
 }
 
 button {
@@ -118,6 +127,18 @@ button:active {
     opacity 800ms ease,
     transform 800ms ease;
 }
+.has-reveal .reveal-left {
+  transform: translateX(-24px);
+}
+.has-reveal .reveal-right {
+  transform: translateX(24px);
+}
+.has-reveal .reveal-up {
+  transform: translateY(-24px);
+}
+.has-reveal .reveal-scale {
+  transform: scale(0.96);
+}
 .has-reveal .reveal.reveal-fast {
   transition-duration: 400ms;
 }
@@ -167,6 +188,10 @@ html {
   transition:
     color 200ms ease,
     background-size 220ms ease;
+}
+.nav-link {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
 }
 .link-underline:hover {
   background-size: 100% 1px;

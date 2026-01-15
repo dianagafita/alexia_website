@@ -2,23 +2,25 @@ import "./globals.css";
 import NavigationBar from "./components/NavigationBar";
 import SEOJsonLd from "./components/SEOJsonLd";
 import EnableReveal from "./components/EnableReveal";
+import Footer from "./components/Footer";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Consultanță Achiziții Publice | Alexia",
-    template: "%s | Alexia",
+    default: "Achip Consulting | Consultanță Achiziții Publice",
+    template: "%s | Achip Consulting",
   },
   description:
-    "Consultanță completă pentru achiziții publice: strategie, documentație, management licitații, evaluare și contestații.",
+    "Achip Consulting oferă servicii complete pentru operatori economici: administrare SEAP, pregătire dosare, pachete dedicate și suport pe tot parcursul procedurilor.",
   keywords: [
     "achiziții publice",
     "consultant achiziții",
     "documentație atribuire",
     "SEAP",
     "licitații",
+    "Achip Consulting",
   ],
   alternates: {
     canonical: "/",
@@ -26,17 +28,17 @@ export const metadata = {
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: "Consultanță Achiziții Publice | Alexia",
+    title: "Achip Consulting | Consultanță Achiziții Publice",
     description:
       "Sprijin cap‑coadă în achiziții publice. Livrabile clare, termene ferme.",
-    images: [{ url: "/images/img1.jpg", width: 1200, height: 630 }],
+    images: [{ url: "/logo.png", width: 600, height: 600 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Consultanță Achiziții Publice | Alexia",
+    title: "Achip Consulting | Consultanță Achiziții Publice",
     description:
       "Sprijin cap‑coadă în achiziții publice. Livrabile clare, termene ferme.",
-    images: ["/images/img1.jpg"],
+    images: ["/logo.png"],
   },
   robots: {
     index: true,
@@ -59,6 +61,7 @@ export default function RootLayout({ children }) {
         <SEOJsonLd siteUrl={siteUrl} />
         <NavigationBar />
         {children}
+        <Footer />
       </body>
     </html>
   );
