@@ -190,9 +190,15 @@ html {
     background-size 220ms ease;
 }
 .nav-link {
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   letter-spacing: 0.2em;
 }
+@media (max-width: 768px) {
+  .nav-link {
+    font-size: 0.9rem;
+  }
+}
+
 .link-underline:hover {
   background-size: 100% 1px;
 }
