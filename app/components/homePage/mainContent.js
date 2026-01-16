@@ -11,7 +11,7 @@ export default function MainContent() {
   return (
     <div
       ref={ref}
-      className="relative w-full flex flex-col justify-center items-start min-h-[70vh] md:px-10 py-40"
+      className="relative w-full flex flex-col justify-center items-start min-h-[70vh] md:px-10 py-30 md:py-40 xs:py-20"
     >
       <section className="max-w-[920px]">
         <p className="tracking-widest text-xs opacity-60 reveal">
@@ -60,10 +60,20 @@ export default function MainContent() {
         ref={bgRef}
         className="absolute inset-0 -z-10 opacity-30 will-change-transform"
       >
+        {/* Mobile image */}
+        <Image
+          src="/images/main-image-small.jpeg"
+          alt="Hero background"
+          className="w-full h-full object-cover block md:hidden"
+          width={800}
+          height={600}
+          priority
+        />
+        {/* Desktop image */}
         <Image
           src="/images/office-modern-brown.jpg"
           alt="Hero background"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover hidden md:block"
           width={1920}
           height={1080}
           priority

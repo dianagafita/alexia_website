@@ -8,6 +8,12 @@ export function useParallax(speed = 0.25) {
     const el = ref.current;
     if (!el) return;
 
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    if (isMobile) {
+      el.style.transform = "none";
+      return;
+    }
+
     let rafId = 0;
     const update = () => {
       const y = window.scrollY * speed;
@@ -28,9 +34,3 @@ export function useParallax(speed = 0.25) {
 
   return ref;
 }
-
-
-
-
-
-

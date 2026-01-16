@@ -28,10 +28,10 @@ export default function NavigationBar() {
   return (
     <>
       <div
-        className={`flex items-center justify-between gap-6 pt-5 pb-3 ${
-          scrolled ? "px-10" : "mx-10"
-        } border-b hairline-b border-[#ededed]/40 fixed top-0 left-0 right-0 z-[100] transition-colors duration-300 ${
-          scrolled ? "bg-[#151515]/100" : ""
+        className={`flex items-center justify-between gap-6 pt-5 pb-3 px-5 ${
+          scrolled ? "md:px-10" : "md:mx-10 md:px-0"
+        } border-b hairline-b border-[#ededed]/40 fixed top-0 left-0 right-0 z-[100] transition-colors duration-300 bg-[#151515] md:bg-transparent ${
+          scrolled ? "md:bg-[#151515]" : ""
         }`}
       >
         <div className="flex items-center gap-5 flex-shrink-0">

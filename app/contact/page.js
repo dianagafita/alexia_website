@@ -3,9 +3,9 @@ import { useRevealOnScroll } from "../lib/useRevealOnScroll";
 export default function ContactPage() {
   const ref = useRevealOnScroll();
   return (
-    <main ref={ref} className="min-h-screen px-10 py-20">
-      <section className="reveal">
-        <div className="mt-10 rounded-lg border border-[#ededed]/12 px-8 py-10 grid md:grid-cols-2 gap-12 items-start">
+    <main ref={ref} className="min-h-screen px-0 md:px-10 py-20">
+      <section className="reveal px-4 sm:px-6 md:px-0">
+        <div className="mt-10 rounded-lg border border-[#ededed]/12 px-4 sm:px-6 md:px-8 py-10 grid md:grid-cols-2 gap-10 md:gap-12 items-start">
           {/* Left: intro + details */}
           <div>
             <p className="tracking-widest text-xs opacity-60">CONTACT</p>
