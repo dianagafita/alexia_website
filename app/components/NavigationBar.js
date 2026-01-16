@@ -30,8 +30,8 @@ export default function NavigationBar() {
       <div
         className={`flex items-center justify-between gap-6 pt-5 pb-3 px-5 ${
           scrolled ? "md:px-10" : "md:mx-10 md:px-0"
-        } border-b hairline-b border-[#ededed]/40 fixed top-0 left-0 right-0 z-[100] transition-colors duration-300 bg-[#151515] md:bg-transparent ${
-          scrolled ? "md:bg-[#151515]" : ""
+        } border-b hairline-b border-[#ededed]/40 fixed top-0 left-0 right-0 z-[100] transition-colors duration-300 bg-[#151515] ${
+          scrolled ? "" : "md:bg-transparent"
         }`}
       >
         <div className="flex items-center gap-5 flex-shrink-0">
@@ -78,7 +78,7 @@ export default function NavigationBar() {
 
       {open && (
         <div className="md:hidden fixed inset-0 z-[200] w-svw h-svh bg-[rgba(21,21,21,0.98)] overflow-y-auto">
-          <div className="flex justify-between items-center px-10 pt-5 pb-3 border-b hairline-b border-[#ededed]/15">
+          <div className="flex justify-between items-center px-5 pt-5 pb-3">
             <Link
               href="/"
               className="inline-flex items-center gap-2"
@@ -87,44 +87,44 @@ export default function NavigationBar() {
               <Image
                 src="/logo.png"
                 alt="Achip Consulting"
-                width={260}
-                height={80}
-                className="h-[3.75rem] w-auto object-contain nav-logo"
+                width={180}
+                height={60}
+                className="h-[3rem] w-auto object-contain nav-logo"
                 priority
               />
             </Link>
             <button
-              className="inline-flex items-center justify-center "
+              className="inline-flex items-center justify-center"
               aria-label="Close menu"
               onClick={() => setOpen(false)}
             >
               X
             </button>
           </div>
-          <nav className="px-10 py-6 flex flex-col gap-6 text-lg">
+          <nav className="py-10 flex flex-col items-center gap-6 text-lg">
             <Link
-              className="link-underline nav-link anim-menu anim-delay-1"
+              className="link-underline nav-link anim-menu anim-delay-1 w-fit"
               href="/"
               onClick={() => setOpen(false)}
             >
               ACASA
             </Link>
             <Link
-              className="link-underline nav-link anim-menu anim-delay-2"
+              className="link-underline nav-link anim-menu anim-delay-2 w-fit"
               href="/about"
               onClick={() => setOpen(false)}
             >
               DESPRE NOI
             </Link>
             <Link
-              className="link-underline nav-link anim-menu anim-delay-3"
+              className="link-underline nav-link anim-menu anim-delay-3 w-fit"
               href="/services"
               onClick={() => setOpen(false)}
             >
               SERVICII
             </Link>
             <Link
-              className="link-underline nav-link anim-menu anim-delay-4"
+              className="link-underline nav-link anim-menu anim-delay-4 w-fit"
               href="/contact"
               onClick={() => setOpen(false)}
             >
