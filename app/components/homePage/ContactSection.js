@@ -7,8 +7,8 @@ export default function ContactSection() {
     <section ref={ref} id="contact" className="px-10 py-16">
       <h2 className="text-3xl reveal">Ai un proiect în plan?</h2>
       <p className="opacity-80 mt-2 max-w-[720px] reveal reveal-delay-1">
-        Spune-ne ce îți dorești, iar noi ne ocupăm de restul — simplu, online și fără stres. Lucrăm 100% digital, cu
-        livrabile clare și termene asumate.
+        Spune-ne ce îți dorești, iar noi ne ocupăm de restul — simplu, online și
+        fără stres. Lucrăm 100% digital, cu livrabile clare și termene asumate.
       </p>
       <form className="mt-8 grid md:grid-cols-2 gap-6 max-w-3xl reveal reveal-delay-2">
         <input
@@ -40,7 +40,8 @@ export default function ContactSection() {
         </div>
       </form>
       <div className="mt-8 opacity-70 text-sm reveal reveal-delay-3 max-w-3xl">
-        Lucrăm 100% online, iar proiectele sunt gestionate într-un spațiu colaborativ la care ai acces permanent.
+        Lucrăm 100% online, iar proiectele sunt gestionate într-un spațiu
+        colaborativ la care ai acces permanent.
       </div>
     </section>
   );

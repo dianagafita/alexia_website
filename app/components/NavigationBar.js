@@ -53,18 +53,18 @@ export default function NavigationBar() {
 
         <nav className={`${open ? "hidden" : "hidden md:flex"} gap-5 ml-auto`}>
           <Link className="link-underline nav-link" href="/">
-            ACASA
-          </Link>
+              ACASA
+            </Link>
           <Link className="link-underline nav-link" href="/about">
-            DESPRE NOI
-          </Link>
+              DESPRE NOI
+            </Link>
           <Link className="link-underline nav-link" href="/services">
-            SERVICII
-          </Link>
+              SERVICII
+            </Link>
           <Link className="link-underline nav-link" href="/contact">
-            CONTACT
-          </Link>
-        </nav>
+              CONTACT
+            </Link>
+          </nav>
 
         <button
           className="md:hidden inline-flex items-center justify-center p-2 rounded border border-[#ededed]/30"

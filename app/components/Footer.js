@@ -25,10 +25,6 @@ export default function Footer() {
               Consultanță completă pentru achiziții publice, cu procese 100%
               online și livrabile clare de la prima discuție.
             </p>
-            <div className="flex gap-4 text-xs uppercase tracking-[0.3em] opacity-60">
-              <span>LinkedIn</span>
-              <span>Facebook</span>
-            </div>
           </div>
           <div className="md:w-1/2 w-full flex flex-col">
             <h4 className="opacity-70 uppercase tracking-[0.3em] text-xs">
@@ -38,10 +34,10 @@ export default function Footer() {
               <li>
                 Email:{" "}
                 <a
-                  href="mailto:contact@achipconsulting.ro"
+                  href="mailto:contact@achipconsulting.com"
                   className="link-underline"
                 >
-                  contact@achipconsulting.ro
+                  contact@achipconsulting.com
                 </a>
               </li>
               <li>Lucrăm 100% online, cu program flexibil.</li>

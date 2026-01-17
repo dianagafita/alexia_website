@@ -1,7 +1,49 @@
 "use client";
+import { useState } from "react";
 import { useRevealOnScroll } from "../lib/useRevealOnScroll";
+
 export default function ContactPage() {
   const ref = useRevealOnScroll();
+  const [status, setStatus] = useState("idle"); // idle | sending | success | error
+  const [errorMsg, setErrorMsg] = useState("");
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setStatus("sending");
+    setErrorMsg("");
+
+    const formData = new FormData(e.target);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      company: formData.get("company"),
+      project: formData.get("project"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+
+      if (!res.ok) {
+        setStatus("error");
+        setErrorMsg(result.error || "A apărut o eroare.");
+        return;
+      }
+
+      setStatus("success");
+      e.target.reset();
+    } catch (err) {
+      setStatus("error");
+      setErrorMsg("Nu am putut trimite mesajul. Verifică conexiunea.");
+    }
+  }
+
   return (
     <main ref={ref} className="min-h-screen px-0 md:px-10 py-20">
       <section className="reveal px-4 sm:px-6 md:px-0">
@@ -20,10 +62,10 @@ export default function ContactPage() {
               <div>
                 Email:{" "}
                 <a
-                  href="mailto:contact@achipconsulting.ro"
+                  href="mailto:contact@achipconsulting.com"
                   className="link-underline"
                 >
-                  contact@achipconsulting.ro
+                  contact@achipconsulting.com
                 </a>
               </div>
               <div>Program: L–V, 09:00 – 18:00 (online)</div>
@@ -31,21 +73,26 @@ export default function ContactPage() {
           </div>
 
           {/* Right: form */}
-          <form className="space-y-4 reveal reveal-delay-1">
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-4 reveal reveal-delay-1"
+          >
             <div className="grid md:grid-cols-2 gap-4">
               <label className="flex flex-col gap-2">
-                <span className="text-sm opacity-70">Nume</span>
+                <span className="text-sm opacity-70">Nume *</span>
                 <input
                   name="name"
+                  required
                   className="bg-transparent border-b hairline-b border-[#ededed]/25 p-3 outline-none"
                   placeholder="Numele tău"
                 />
               </label>
               <label className="flex flex-col gap-2">
-                <span className="text-sm opacity-70">Email</span>
+                <span className="text-sm opacity-70">Email *</span>
                 <input
                   name="email"
                   type="email"
+                  required
                   className="bg-transparent border-b hairline-b border-[#ededed]/25 p-3 outline-none"
                   placeholder="exemplu@mail.com"
                 />
@@ -61,29 +108,43 @@ export default function ContactPage() {
             </label>
             <label className="flex flex-col gap-2">
               <span className="text-sm opacity-70">Tip proiect / domeniu</span>
-              <input
+              <textarea
                 name="project"
-                className="bg-transparent border-b hairline-b border-[#ededed]/25 p-3 outline-none"
+                rows={2}
+                className="bg-transparent border-b hairline-b border-[#ededed]/25 p-3 outline-none resize-none"
                 placeholder="Ex: procedură simplificată, achiziții lucrări"
               />
             </label>
             <label className="flex flex-col gap-2">
-              <span className="text-sm opacity-70">Mesaj</span>
+              <span className="text-sm opacity-70">Mesaj *</span>
               <textarea
                 name="message"
-                className="bg-transparent border-b hairline-b border-[#ededed]/25 p-3 outline-none min-h-[140px]"
+                required
+                className="bg-transparent border-b hairline-b border-[#ededed]/25 p-3 outline-none min-h-[220px]"
                 placeholder="Scrie câteva detalii relevante..."
               />
             </label>
+
+            {status === "error" && (
+              <div className="text-red-400 text-sm">{errorMsg}</div>
+            )}
+
+            {status === "success" && (
+              <div className="text-green-400 text-sm">
+                Mesajul a fost trimis cu succes! Revenim în curând.
+              </div>
+            )}
+
             <div className="flex items-center justify-between gap-4">
               <span className="opacity-60 text-sm">
                 Răspundem de regulă în 24–48h.
               </span>
               <button
-                type="button"
-                className="px-5 py-2 rounded-full btn-outline"
+                type="submit"
+                disabled={status === "sending"}
+                className="px-5 py-2 rounded-full btn-outline disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Trimite mesajul
+                {status === "sending" ? "Se trimite..." : "Trimite mesajul"}
               </button>
             </div>
           </form>
