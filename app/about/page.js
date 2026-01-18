@@ -21,18 +21,20 @@ const values = [
   },
 ];
 
-const stats = [
-  { n: "100+", l: "proceduri finalizate" },
-  { n: "10+", l: "ani experiență" },
-  { n: "40+", l: "parteneri / furnizori" },
-];
+// const stats = [
+//   { n: "100+", l: "proceduri finalizate" },
+//   { n: "10+", l: "ani experiență" },
+//   { n: "40+", l: "parteneri / furnizori" },
+// ];
 
 export default function AboutPage() {
   const ref = useRevealOnScroll();
   return (
     <main ref={ref} className="min-h-screen font-sans pt-20">
       <section className="px-10 py-16">
-        <p className="tracking-widest text-xs opacity-60 reveal reveal-up">DESPRE NOI</p>
+        <p className="tracking-widest text-xs opacity-60 reveal reveal-up">
+          DESPRE NOI
+        </p>
         <h1 className="mt-3 text-4xl md:text-5xl leading-tight max-w-4xl reveal reveal-delay-1">
           Navigăm corect și sigur platforma SEAP, de la primii pași până la
           proceduri complexe.
@@ -51,7 +53,7 @@ export default function AboutPage() {
           structurat, comunicare clară și suport constant, achizițiile publice
           devin o oportunitate reală de creștere pentru orice companie.
         </p>
-        <div className="mt-8 grid sm:grid-cols-3 gap-6 w-full">
+        {/* <div className="mt-8 grid sm:grid-cols-3 gap-6 w-full">
           {stats.map((stat, idx) => (
             <div
               key={stat.l}
@@ -61,7 +63,7 @@ export default function AboutPage() {
               <Stat {...stat} />
             </div>
           ))}
-        </div>
+        </div> */}
       </section>
 
       <section className="px-10 pb-16 reveal">
@@ -149,7 +151,10 @@ export default function AboutPage() {
           proiect.”
         </blockquote>
         <div className="mt-8 flex justify-center">
-          <a href="/contact" className="px-6 py-3 rounded-full btn-outline reveal reveal-up">
+          <a
+            href="/contact"
+            className="px-6 py-3 rounded-full btn-outline reveal reveal-up"
+          >
             Începem o discuție
           </a>
         </div>
