@@ -8,6 +8,10 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
   title: {
     default: "Achip Consulting | Consultanță Achiziții Publice",
     template: "%s | Achip Consulting",
